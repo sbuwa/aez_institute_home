@@ -5,8 +5,7 @@ import { opacity, slideUp } from './animation';
 import styles from './style.module.scss';
 
 export default function Index() {
-	const phrase =
-		'At Flamingo Aero Solutions, our story began with a vision—a vision to redefine excellence in aerospace spare parts. Founded by aviation enthusiasts and industry veterans, we embarked on a mission to bridge the gap between innovation and reliability. Our journey has been fueled by unwavering commitment, technical expertise, and a genuine love for all things aviation.';
+	const phrase = `At Nalin Tutorials LLP, we believe education is the most powerful tool for personal and societal transformation. Founded in 2024 and headquartered in Mumbai, we are a dedicated team of educators, mentors, and innovators working to empower students with the knowledge, skills, and confidence they need to thrive in academics and beyond.\n\nOur mission is simple: to make high-quality, personalized learning accessible to every student, regardless of background. With a strong foundation in academic coaching and a passion for student success, we offer curated learning programs, expert guidance, and a supportive environment that nurtures curiosity and growth.\n\nWhat sets us apart is our student-first approach. Whether it's exam preparation, concept building, or skill development, we tailor our teaching methods to each learner’s pace and needs. Through interactive sessions, real-world problem-solving, and continuous mentorship, we aim to not just teach—but to inspire.`;
 	const description = useRef(null);
 	const isInView = useInView(description);
 	return (
@@ -32,9 +31,9 @@ export default function Index() {
 					variants={opacity}
 					animate={isInView ? 'open' : 'closed'}
 				>
-					At Flamingo Aero Solutions, we soar beyond boundaries,
-					supplying top-tier aerospace spare parts to propel your
-					aviation endeavors.{' '}
+					Nalin Tutorials LLP is more than just a coaching institute.
+					It is a movement towards redefining education, one student
+					at a time.
 				</motion.p>
 				<div data-scroll data-scroll-speed={0.1}>
 					<Rounded className={styles.button}>
