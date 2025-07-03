@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Student Registration Portal</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+					Roboto, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background-color: #f8fafc;
+			}
+
+			/* Header */
+			.header {
+				background: white;
+				padding: 1rem 0;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 2rem;
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				font-size: 1.3rem;
+				font-weight: 600;
+				color: #1f2937;
+			}
+
+			.logo-icon {
+				width: 40px;
+				height: 40px;
+				background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+				border-radius: 8px;
+				margin-right: 0.75rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 1.2rem;
+			}
+
+			.nav-menu {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+			}
+
+			.nav-link {
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+				color: #6b7280;
+				font-weight: 500;
+				transition: color 0.3s;
+				gap: 0.5rem;
+			}
+
+			.nav-link:hover {
+				color: #3b82f6;
+			}
+
+			.nav-icon {
+				font-size: 1.1rem;
+			}
+
+			/* Main Content */
+			.main-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 3rem 2rem;
+			}
+
+			/* Registration Options */
+			.registration-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 2rem;
+				margin-bottom: 4rem;
+			}
+
+			.registration-card {
+				background: white;
+				border-radius: 16px;
+				padding: 2.5rem;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				border: 1px solid #e5e7eb;
+				transition: all 0.3s;
+				text-align: center;
+			}
+
+			.registration-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+			}
+
+			.card-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				font-size: 1.8rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.new-admission .card-icon {
+				background: rgba(59, 130, 246, 0.1);
+				color: #3b82f6;
+			}
+
+			.readmission .card-icon {
+				background: rgba(34, 197, 94, 0.1);
+				color: #22c55e;
+			}
+
+			.feedback .card-icon {
+				background: rgba(168, 85, 247, 0.1);
+				color: #a855f7;
+			}
+
+			.card-title {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: #1f2937;
+				margin-bottom: 0.5rem;
+			}
+
+			.card-subtitle {
+				font-size: 1rem;
+				color: #6b7280;
+				margin-bottom: 1rem;
+			}
+
+			.card-description {
+				color: #6b7280;
+				margin-bottom: 2rem;
+				line-height: 1.5;
+			}
+
+			.card-button {
+				width: 100%;
+				padding: 0.875rem 1.5rem;
+				border: none;
+				border-radius: 12px;
+				font-size: 1rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			.new-admission .card-button {
+				background: #3b82f6;
+				color: white;
+			}
+
+			.new-admission .card-button:hover {
+				background: #2563eb;
+				transform: translateY(-2px);
+			}
+
+			.readmission .card-button {
+				background: #22c55e;
+				color: white;
+			}
+
+			.readmission .card-button:hover {
+				background: #16a34a;
+				transform: translateY(-2px);
+			}
+
+			.feedback .card-button {
+				background: #a855f7;
+				color: white;
+			}
+
+			.feedback .card-button:hover {
+				background: #9333ea;
+				transform: translateY(-2px);
+			}
+
+			/* Information Sections */
+			.info-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 2rem;
+			}
+
+			.info-section {
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+				border: 1px solid #e5e7eb;
+			}
+
+			.info-title {
+				font-size: 1.25rem;
+				font-weight: 700;
+				color: #1f2937;
+				margin-bottom: 1.5rem;
+			}
+
+			.info-list {
+				list-style: none;
+			}
+
+			.info-list li {
+				color: #6b7280;
+				margin-bottom: 0.75rem;
+				padding-left: 1.5rem;
+				position: relative;
+			}
+
+			.info-list li::before {
+				content: '•';
+				color: #3b82f6;
+				font-weight: bold;
+				position: absolute;
+				left: 0;
+			}
+
+			/* Footer */
+			.footer {
+				background: #1f2937;
+				color: white;
+				padding: 3rem 0 1rem;
+				margin-top: 4rem;
+			}
+
+			.footer-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+			}
+
+			.footer-section h3 {
+				font-size: 1.2rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+				color: white;
+			}
+
+			.footer-section p,
+			.footer-section a {
+				color: #9ca3af;
+				text-decoration: none;
+				margin-bottom: 0.5rem;
+				display: block;
+				transition: color 0.3s;
+			}
+
+			.footer-section a:hover {
+				color: white;
+			}
+
+			.social-links {
+				display: flex;
+				gap: 1rem;
+				margin-top: 1rem;
+			}
+
+			.social-link {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				background: #374151;
+				border-radius: 8px;
+				color: #9ca3af;
+				font-size: 1.2rem;
+				transition: all 0.3s;
+			}
+
+			.social-link:hover {
+				background: #3b82f6;
+				color: white;
+			}
+
+			.footer-bottom {
+				max-width: 1200px;
+				margin: 2rem auto 0;
+				padding: 1rem 2rem;
+				border-top: 1px solid #374151;
+				text-align: center;
+				color: #9ca3af;
+			}
+
+			/* Mobile Menu */
+			.mobile-menu-btn {
+				display: none;
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				cursor: pointer;
+				color: #6b7280;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.mobile-menu-btn {
+					display: block;
+				}
+				.nav-menu {
+					position: absolute;
+					top: 60px;
+					left: 0;
+					width: 100%;
+					background: white;
+					flex-direction: column;
+					align-items: flex-start;
+					padding: 1rem 2rem;
+					box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+					display: none;
+					z-index: 200;
+				}
+				.nav-menu.show {
+					display: flex !important;
+				}
+				.nav-menu a {
+					width: 100%;
+					margin-bottom: 1rem;
+				}
+				.nav-container {
+					position: relative;
+				}
+				.main-content {
+					padding: 2rem 1rem;
+				}
+				.registration-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+				.registration-card {
+					padding: 2rem;
+				}
+				.info-grid {
+					grid-template-columns: 1fr;
+				}
+				.footer-content {
+					grid-template-columns: 1fr;
+					text-align: center;
+				}
+				.social-links {
+					justify-content: center;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.registration-card {
+					padding: 1.5rem;
+				}
+				.card-title {
+					font-size: 1.3rem;
+				}
+				.info-section {
+					padding: 1.5rem;
+				}
+				.logo {
+					font-size: 1.1rem;
+				}
+				.logo-icon {
+					width: 35px;
+					height: 35px;
+					font-size: 1rem;
+				}
+			}
+
+			/* Loading Animation */
+			.loading {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				border-radius: 50%;
+				border-top-color: white;
+				animation: spin 1s ease-in-out infinite;
+			}
+
+			@keyframes spin {
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			/* Button States */
+			.card-button:disabled {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}
+
+			.card-button:active {
+				transform: translateY(0);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<div class="nav-container">
+				<div class="logo">
+					<div class="logo-icon">🏫</div>
+					Student Registration Portal
+				</div>
+				<nav class="nav-menu">
+					<a href="./homepage.html" class="nav-link">
+						<span class="nav-icon">🏠</span>
+						Home
+					</a>
+					<a href="./Aboutus.html" class="nav-link">
+						<span class="nav-icon">ℹ️</span>
+						About
+					</a>
+				</nav>
+				<button class="mobile-menu-btn">☰</button>
+			</div>
+		</header>
+
+		<!-- Main Content -->
+		<main class="main-content">
+			<!-- Registration Options -->
+			<div class="registration-grid">
+				<!-- New Admission -->
+				<div class="registration-card new-admission">
+					<div class="card-icon">📄</div>
+					<h2 class="card-title">New Admission</h2>
+					<p class="card-subtitle">
+						First-time registration for new students
+					</p>
+					<p class="card-description">
+						For first-time applicants and new students
+					</p>
+					<a
+						href="https://forms.gle/iSTzBBH3SNWvuJa1A"
+						target="_blank"
+					>
+					<button class="card-button" >
+						Start New Admission
+					</button>
+					</a>
+				</div>
+
+				<!-- Feedback and Query -->
+				<div class="registration-card feedback">
+					<div class="card-icon">🔍</div>
+					<h2 class="card-title">Feedback and query</h2>
+					<p class="card-subtitle">Check your application status</p>
+					<p class="card-description">
+						Track your application progress
+					</p>
+					<a
+						href="https://forms.gle/QEfcQugP2he6SGLH8"
+						target="_blank"
+					>
+						<button class="card-button">Enquire</button>
+					</a>
+				</div>
+			</div>
+
+			<!-- Information Grid -->
+			<div class="info-grid">
+				<!-- Important Notice -->
+				<div class="info-section">
+					<h3 class="info-title">Important Notice</h3>
+					<ul class="info-list">
+						<li>All documents must be in PDF format</li>
+						<li>Application deadline: March 31, 2024</li>
+						<li>Interview dates will be announced soon</li>
+					</ul>
+				</div>
+
+				<!-- Required Documents -->
+				<div class="info-section">
+					<h3 class="info-title">Required Documents</h3>
+					<ul class="info-list">
+						<li>Valid ID proof</li>
+						<li>Academic transcripts</li>
+						<li>Passport size photographs</li>
+					</ul>
+				</div>
+
+				<!-- Contact Support -->
+				<div class="info-section">
+					<h3 class="info-title">Contact Support</h3>
+					<ul class="info-list">
+						<li>Email: support@institution.edu</li>
+						<li>Phone: (555) 123-4567</li>
+						<li>Hours: Mon-Fri, 9AM-5PM</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="footer-content">
+				<!-- About Us -->
+				<div class="footer-section">
+					<h3>About Us</h3>
+					<p>
+						Providing quality education and fostering academic
+						excellence since 1990.
+					</p>
+				</div>
+
+				<!-- Quick Links -->
+				<div class="footer-section">
+					<h3>Quick Links</h3>
+					<a href="#programs">Programs</a>
+					<a href="#admissions">Admissions</a>
+					<a href="#campus">Campus Life</a>
+				</div>
+
+				<!-- Resources -->
+				<div class="footer-section">
+					<h3>Resources</h3>
+					<a href="#portal">Student Portal</a>
+					<a href="#library">Library</a>
+					<a href="#career">Career Services</a>
+				</div>
+
+				<!-- Connect With Us -->
+				<div class="footer-section">
+					<h3>Connect With Us</h3>
+					<div class="social-links">
+						<a href="#" class="social-link">🐦</a>
+						<a href="#" class="social-link">💼</a>
+						<a href="#" class="social-link">📘</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2024 Institution Name. All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			// Registration handlers
+			function handleNewAdmission() {
+				const button = event.target;
+				button.disabled = true;
+				button.innerHTML =
+					'<span class="loading"></span> Processing...';
+
+				setTimeout(() => {
+					alert('Redirecting to New Admission Form...');
+					button.disabled = false;
+					button.innerHTML = 'Start New Admission';
+				}, 2000);
+			}
+
+			function handleReadmission() {
+				const button = event.target;
+				button.disabled = true;
+				button.innerHTML =
+					'<span class="loading"></span> Processing...';
+
+				setTimeout(() => {
+					alert('Redirecting to Readmission Form...');
+					button.disabled = false;
+					button.innerHTML = 'Begin Readmission';
+				}, 2000);
+			}
+
+			function handleStatusCheck() {
+				const button = event.target;
+				button.disabled = true;
+				button.innerHTML = '<span class="loading"></span> Loading...';
+
+				setTimeout(() => {
+					alert('Redirecting to Status Check Portal...');
+					button.disabled = false;
+					button.innerHTML = 'Check Status';
+				}, 2000);
+			}
+
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(
+						this.getAttribute('href')
+					);
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start',
+						});
+					}
+				});
+			});
+
+			// Mobile menu toggle
+			document
+				.querySelector('.mobile-menu-btn')
+				?.addEventListener('click', function () {
+					const navMenu = document.querySelector('.nav-menu');
+					navMenu.classList.toggle('show');
+				});
+
+			// Add animation on scroll
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px',
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.style.opacity = '1';
+						entry.target.style.transform = 'translateY(0)';
+					}
+				});
+			}, observerOptions);
+
+			// Observe cards for animation
+			document
+				.querySelectorAll('.registration-card, .info-section')
+				.forEach((card) => {
+					card.style.opacity = '0';
+					card.style.transform = 'translateY(20px)';
+					card.style.transition =
+						'opacity 0.6s ease, transform 0.6s ease';
+					observer.observe(card);
+				});
+
+			// Add keyboard navigation
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Tab') {
+					document.body.classList.add('keyboard-navigation');
+				}
+			});
+
+			document.addEventListener('mousedown', function () {
+				document.body.classList.remove('keyboard-navigation');
+			});
+		</script>
+	</body>
+</html>

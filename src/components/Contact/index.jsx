@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Rounded from '../../common/RoundedButton';
 import styles from './style.module.scss';
+import { Link } from 'react-router-dom';
 
 export default function Index() {
 	const container = useRef(null);
@@ -32,12 +33,14 @@ export default function Index() {
 						style={{ x }}
 						className={styles.buttonContainer}
 					>
-						<Rounded
-							backgroundColor={'#334BD3'}
-							className={styles.button}
-						>
-							<p>Get in touch</p>
-						</Rounded>
+						<Link to="/contact">
+							<Rounded
+								backgroundColor={'#334BD3'}
+								className={styles.button}
+							>
+								<p>Get in touch</p>
+							</Rounded>
+						</Link>
 					</motion.div>
 					<motion.svg
 						style={{ rotate, scale: 2 }}
@@ -55,10 +58,10 @@ export default function Index() {
 				</div>
 				<div className={styles.nav}>
 					<Rounded>
-						<p>adid504@gmali.com</p>
+						<p>nalin_office1@nalintutorials.com</p>
 					</Rounded>
 					<Rounded>
-						<p>+31 6 27 84 74 30</p>
+						<p>+91 73048 30386</p>
 					</Rounded>
 				</div>
 				<div className={styles.info}>

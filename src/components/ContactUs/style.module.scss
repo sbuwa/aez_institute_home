@@ -1,0 +1,180 @@
+.contactUsWrapper {
+  min-height: 100vh;
+  background: #000011;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.header {
+  background: #0a0a23;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1FDAA6;
+}
+
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #1FDAA6, #09A2DD);
+  border-radius: 10px;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.logoText {
+  color: #fff;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.registrationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.registrationCard {
+  background: #10102a;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border: 1px solid #1FDAA6;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.registrationCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 32px rgba(31,218,166,0.15);
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem auto;
+  background: rgba(31,218,166,0.12);
+}
+
+.newAdmission .cardIcon {
+  background: rgba(31,218,166,0.18);
+  color: #1FDAA6;
+}
+
+.feedback .cardIcon {
+  background: rgba(9,162,221,0.18);
+  color: #09A2DD;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  color: #1FDAA6;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  color: #b3b3cc;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.cardButton {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1FDAA6, #09A2DD);
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cardButton:hover {
+  background: linear-gradient(90deg, #09A2DD, #1FDAA6);
+  transform: translateY(-2px);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.infoSection {
+  background: #18183a;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border: 1px solid #22224a;
+}
+
+.infoTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1FDAA6;
+  margin-bottom: 1.2rem;
+}
+
+.infoList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.infoList li {
+  color: #b3b3cc;
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.infoList li::before {
+  content: '•';
+  color: #1FDAA6;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 2rem 0.5rem;
+  }
+  .registrationGrid, .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .registrationCard, .infoSection {
+    padding: 1.5rem 1rem;
+  }
+} 

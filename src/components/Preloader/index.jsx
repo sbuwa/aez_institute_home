@@ -4,31 +4,7 @@ import { useEffect, useState } from 'react';
 import { opacity, slideUp } from './anim';
 import styles from './style.module.scss';
 
-const words = [
-	'United Kingdom',
-	'Japan',
-	'France',
-	'Germany',
-	'Canada',
-	'Australia',
-	'United Arab Emirates',
-	'Singapore',
-	'Hong Kong',
-	'Netherlands',
-	'Italy',
-	'Mexico',
-	'Brazil',
-	'Chile',
-	'Argentina',
-	'Peru',
-	'Panama',
-	'Colombia',
-	'Guatemala',
-	'Qatar',
-	'New Zealand',
-	'Switzerland',
-	'Turkey',
-];
+const words = ['Located at:', 'Kandivali West', 'Matunga east'];
 
 export default function Index() {
 	const [index, setIndex] = useState(0);

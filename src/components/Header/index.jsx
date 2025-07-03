@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Magnetic from '../../common/Magnetic';
 import Rounded from '../../common/RoundedButton';
 import Nav from './nav';
@@ -59,19 +59,19 @@ export default function Index() {
 				<div className={styles.nav}>
 					<Magnetic>
 						<div className={styles.el}>
-							<a>Work</a>
+							<Link to="/work">Work</Link>
 							<div className={styles.indicator}></div>
 						</div>
 					</Magnetic>
 					<Magnetic>
 						<div className={styles.el}>
-							<a>About</a>
+							<Link to="/about">About</Link>
 							<div className={styles.indicator}></div>
 						</div>
 					</Magnetic>
 					<Magnetic>
 						<div className={styles.el}>
-							<a>Contact</a>
+							<Link to="/contact">Contact</Link>
 							<div className={styles.indicator}></div>
 						</div>
 					</Magnetic>

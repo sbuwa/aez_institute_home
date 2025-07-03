@@ -50,8 +50,10 @@ export default function Home() {
 			{/* <Image src="/images/background.jpg" fill={true} alt="background" /> */}
 			<div className={styles.sliderContainer}>
 				<div ref={slider} className={styles.slider}>
-					<p ref={firstText}>AEZ</p>
-					<p ref={secondText}>Institute</p>
+					<p ref={firstText} className="landing-text">
+						AEZ NT Learners
+					</p>
+					<p ref={secondText} className="landing-text"></p>
 				</div>
 			</div>
 			<div
